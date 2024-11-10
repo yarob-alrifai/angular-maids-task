@@ -33,13 +33,13 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
 
 
-    importProvidersFrom(
-      NgxsModule.forRoot([UserState]),
-      NgxsReduxDevtoolsPluginModule.forRoot(),
-    ),
+    // importProvidersFrom(
+    //   NgxsModule.forRoot([UserState]),
+    //   NgxsReduxDevtoolsPluginModule.forRoot(),
+    // ),
 
 
-    // provideStore([UserState], withNgxsReduxDevtoolsPlugin()), 
+    provideStore([UserState], withNgxsReduxDevtoolsPlugin()), 
     provideAnimationsAsync(),
   ],
 };
