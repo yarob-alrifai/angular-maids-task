@@ -1,0 +1,36 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from '../../state/user';
+export interface PaginatedResponse<T> {
+  page: number;
+  per_page: number;
+  total: number;
+  total_pages: number;
+  data: T[];
+}
+@Injectable({
+  providedIn: 'root',
+})
+export class UserBackendService {
+  private apiUrl = 'https://reqres.in/api/users';
+
+  constructor(private http: HttpClient) {}
+
+  loadUsersPage(
+    page: number = 1,
+    perPage: number = 6,
+  ): Observable<PaginatedResponse<User>> {
+    return this.http
+      .get<
+        PaginatedResponse<User>
+      >(`${this.apiUrl}?page=${page}&per_page=${perPage}`)
+      .pipe(map((response) => response));
+  }
+  loadUser(id: number = 1): Observable<PaginatedResponse<User>> {
+    return this.http
+      .get<PaginatedResponse<User>>(`${this.apiUrl}/${id}`)
+      .pipe(map((response) => response));
+  }
+}

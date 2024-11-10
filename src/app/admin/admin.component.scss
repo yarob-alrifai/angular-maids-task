@@ -1,0 +1,47 @@
+.full-height {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidenav-container {
+  display: flex;
+  flex: 1;
+}
+
+.mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.router-outlet {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.active-link {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.sidenav-custom-width {
+  width: 250px;
+}
+
+@media (max-width: 768px) {
+  .sidenav-custom-width {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidenav-custom-width {
+    width: 150px;
+  }
+}

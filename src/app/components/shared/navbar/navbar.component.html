@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="mat-elevation-z8 fixed-toolbar">
+  <div class="container">
+    <span class="spacer"></span>
+    <button
+      mat-button
+      routerLink="/main"
+      routerLinkActive="active"
+      [ngClass]="{ 'active-button': isActive('/main') }"
+      class="rounded-md px-2 py-1 mx-2"
+    >
+      Main
+    </button>
+    <button
+      mat-button
+      routerLink="/admin"
+      routerLinkActive="active"
+      [ngClass]="{ 'active-button': isActive('/admin') }"
+      class="rounded-md px-2 py-1 mx-2"
+    >
+      Admin
+    </button>
+  </div>
+</mat-toolbar>
