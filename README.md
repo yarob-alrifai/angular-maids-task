@@ -1,27 +1,62 @@
-# MaidsTask
+# Angular Maids Task
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
+You can check the live project here: [Angular Maids Task](https://yarob-alrifai.github.io/angular-maids-task/)
 
-## Development server
+## Project Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project is a dynamic Angular application that utilizes various modern front-end technologies to manage and display user data efficiently. It features state management using **NGXS**, responsive styling with **Tailwind CSS**, user-friendly UI elements from **Angular Material**, and optimized performance using **RxJS** and **Observables**.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **State Management**: Utilized **NGXS** for efficient state handling.
+- **Observables**: Leveraged **RxJS** and **Observables** for handling asynchronous operations.
+- **Directives**: Created custom directives for reusable functionality.
+- **Angular Material**: Integrated **Angular Material** components like buttons, dialogs, and paginator for better UI/UX.
+- **Tailwind CSS**: Employed **Tailwind CSS** for custom, utility-first styling.
+- **Paginator**: Added pagination for user lists with **Angular Material** paginator.
+- **Snipper**: Used **Angular Material Snipper** for displaying loading states.
+- **Angular Schematics**: Utilized **Angular Material Schematics** for quick setup of Material components.
+- **Angular Signals**: Used **Angular Signals** for a reactive application experience.
+- **FormControl**: Managed form controls and validation to capture user input.
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To install and run this project locally, follow the steps below:
 
-## Running unit tests
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yarob-alrifai/angular-maids-task.git
+2. Navigate to the project folder:
+   ```bash
+   cd angular-maids-task
+3. Install the dependencies:
+   ```bash
+   npm install
+3. Run the application:
+   ```bash
+   ng serve
+The application will be available at http://localhost:4200/.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Technologies Used
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Angular**: The front-end framework.
+- **NGXS**: For state management.
+- **RxJS**: For handling asynchronous data streams.
+- **Angular Material**: For UI components.
+- **Tailwind CSS**: For styling the UI with a utility-first approach.
+- **FormControl**: For managing form inputs and validations.
+- **Angular Schematics**: For automating common Angular tasks.
+- **Angular Signals**: To manage state changes reactively.
 
-## Further help
+## Contribution
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Feel free to fork this project, make your changes, and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+ ```bash
+ You can copy and paste this code directly into your `README.md` file. Let me know if you need further adjustments!
+
+
