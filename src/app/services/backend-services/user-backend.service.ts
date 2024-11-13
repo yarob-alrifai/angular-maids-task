@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../../state/user';
 export interface PaginatedResponse<T> {
@@ -15,21 +15,22 @@ export interface PaginatedResponse<T> {
 })
 export class UserBackendService {
   private apiUrl = 'https://reqres.in/api/users';
+  readonly #httpClient = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
+
 
   loadUsersPage(
     page: number = 1,
     perPage: number = 6,
   ): Observable<PaginatedResponse<User>> {
-    return this.http
+    return this.#httpClient
       .get<
         PaginatedResponse<User>
       >(`${this.apiUrl}?page=${page}&per_page=${perPage}`)
       .pipe(map((response) => response));
   }
   loadUser(id: number = 1): Observable<PaginatedResponse<User>> {
-    return this.http
+    return this.#httpClient
       .get<PaginatedResponse<User>>(`${this.apiUrl}/${id}`)
       .pipe(map((response) => response));
   }
