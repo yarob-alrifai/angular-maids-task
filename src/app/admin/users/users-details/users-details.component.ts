@@ -1,24 +1,23 @@
 import { Component, inject } from '@angular/core';
 import { Location } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { USER_ENGINE } from '../../../services/interfaces/user.service.interface';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { User } from '../../../state/user';
 import { ActivatedRoute } from '@angular/router';
-import { SpinnerLoaderSAComponent } from '../../../components/shared/spinner/spinner.component';
-import { ErrorMessageComponent } from '../../../components/shared/error-message/error-message.component';
+
+import { NotFoundStubComponent } from '../../../components/shared/not-found-stub/not-found-stub.component';
+import { UsersDetailsMockComponent } from './mock/users-details copy/users-details-mock.component';
 @Component({
   selector: 'app-users-details',
   standalone: true,
   imports: [
     MatIconModule,
-    MatCardModule,
     MatButtonModule,
-    SpinnerLoaderSAComponent,
-    ErrorMessageComponent,
+    NotFoundStubComponent,
+    UsersDetailsMockComponent,
   ],
   templateUrl: './users-details.component.html',
   styleUrl: './users-details.component.scss',

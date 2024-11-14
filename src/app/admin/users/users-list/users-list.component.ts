@@ -26,10 +26,10 @@ import {
   distinctUntilChanged,
   switchMap,
 } from 'rxjs';
-import { SpinnerLoaderSAComponent } from '../../../components/shared/spinner/spinner.component';
 import { LOCAL_STORAGE_ENGINE } from '../../../services/interfaces/localStorage.service.interface';
-import { ErrorMessageComponent } from '../../../components/shared/error-message/error-message.component';
 import { TruncateDirective } from '../../../directives/truncate.directive';
+import { NotFoundStubComponent } from '../../../components/shared/not-found-stub/not-found-stub.component';
+import { UsersListMockComponent } from './mock/users-list-mock/users-list-mock.component';
 
 @Component({
   selector: 'app-users-list',
@@ -41,9 +41,9 @@ import { TruncateDirective } from '../../../directives/truncate.directive';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    SpinnerLoaderSAComponent,
-    ErrorMessageComponent,
     TruncateDirective,
+    NotFoundStubComponent,
+    UsersListMockComponent,
   ],
 
   templateUrl: './users-list.component.html',
@@ -56,7 +56,6 @@ export class UsersListComponent implements AfterViewInit {
   pageSizeOptions = [5, 10, 25];
   pageEvent: PageEvent;
   showPageSizeOptions = true;
-  searchControl = new FormControl<number | null>(null);
 
   // red inject services that we will use
   readonly #userService = inject(USER_ENGINE);
@@ -87,6 +86,12 @@ export class UsersListComponent implements AfterViewInit {
     return new MatTableDataSource<User>(this.users());
   });
 
+  searchControl = new FormControl<number | null>(null);
+
+  asd(): boolean {
+    return this.isLoading() as boolean;
+  }
+
   ngOnInit(): void {
     this.#clearCache();
     this.#loadUsersPage(this.pageIndex + 1, this.pageSize);
@@ -106,12 +111,10 @@ export class UsersListComponent implements AfterViewInit {
     this.#localStorageService.clearCache();
   }
 
-
   //red Load a specific page of users based on the provided page index and page size
   #loadUsersPage(pageIndex: number, pageSize: number): void {
     this.#userService.loadUsersPage(pageIndex, pageSize);
   }
-
 
   // red Listen to the search control; triggers a user search whenever the value changes
   #listenToSearchControl(): void {
@@ -128,7 +131,7 @@ export class UsersListComponent implements AfterViewInit {
               return this.#userService.loadUser(numericValue).pipe(
                 catchError(() => {
                   return [];
-                }),
+                })
               );
             }
           } else {
@@ -137,7 +140,7 @@ export class UsersListComponent implements AfterViewInit {
             return [];
           }
         }),
-        takeUntilDestroyed(this.#destroyRef),
+        takeUntilDestroyed(this.#destroyRef)
       )
       .subscribe();
   }
@@ -152,7 +155,6 @@ export class UsersListComponent implements AfterViewInit {
       this.length = this.totalRecord();
     });
   }
-
 
   // red for disables the paginator, hides page size options, and disables first/last buttons if there is only one record
   totalRecordIsOne(): boolean {

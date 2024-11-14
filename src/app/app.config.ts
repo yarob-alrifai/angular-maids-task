@@ -1,9 +1,9 @@
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { NgxsReduxDevtoolsPluginModule, withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
-import { NgxsModule, provideStore } from '@ngxs/store';
+import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
+import { provideStore } from '@ngxs/store';
 import { UserState } from './state/user';
 import { provideHttpClient } from '@angular/common/http';
 import { adminRoutes } from './admin/admin.routes';
@@ -32,14 +32,7 @@ export const appConfig: ApplicationConfig = {
 
     provideHttpClient(),
 
-
-    // importProvidersFrom(
-    //   NgxsModule.forRoot([UserState]),
-    //   NgxsReduxDevtoolsPluginModule.forRoot(),
-    // ),
-
-
-    provideStore([UserState], withNgxsReduxDevtoolsPlugin()), 
+    provideStore([UserState], withNgxsReduxDevtoolsPlugin()),
     provideAnimationsAsync(),
   ],
 };
